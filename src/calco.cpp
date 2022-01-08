@@ -1,3 +1,4 @@
+#define STRICT_R_HEADERS
 #include <Rcpp.h>
 #include <math.h> 
 #include <iostream>
@@ -56,9 +57,9 @@ NumericVector calCo(NumericMatrix prev_atoms, double length, double bAngle, doub
   _v       = (_SvdV-u3)/dis2;
   _w       =NumericVector::create(_u[1]*_v[2]-_u[2]*_v[1], _u[2]*_v[0]-_u[0]*_v[2], _u[0]*_v[1]-_u[1]*_v[0]);
     
-  n_res    = cur_res + _u*length*cos(PI-bAngle)
-  + _v*length*sin(PI-bAngle)*cos(tAngle)
-  + _w*length*sin(PI-bAngle)*sin(tAngle);
+  n_res    = cur_res + _u*length*cos(M_PI-bAngle)
+  + _v*length*sin(M_PI-bAngle)*cos(tAngle)
+  + _w*length*sin(M_PI-bAngle)*sin(tAngle);
   
   return n_res;
   
